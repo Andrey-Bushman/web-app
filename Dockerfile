@@ -9,4 +9,5 @@ RUN dotnet publish web-app.csproj -c Release --no-build -o /app
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=build /app .
+EXPOSE 80 443
 ENTRYPOINT ["dotnet", "web-app.dll"]
